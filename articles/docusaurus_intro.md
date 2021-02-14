@@ -4,7 +4,7 @@ title: "ドキュメント作成ツールの決定版！Markdown + React の体�
 emoji: "🦖" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア記事
 topics: ["Docusaurus", "documentation", "Markdown", "React", "MDX"] # タグ．["markdown", "rust", "aws"]のように指定する
-published: false # 公開設定（falseにすると下書き）
+published: true # 公開設定（falseにすると下書き）
 ---
 
 # What is Docusaurus ?
@@ -26,13 +26,19 @@ published: false # 公開設定（falseにすると下書き）
 :::details より詳細な特徴の説明
 ## 1. Powered by Markdown
 
+![Powered by Markdown](https://d33wubrfki0l68.cloudfront.net/82d7b6152e7f72bc5dcfc783906182e6366418c5/14d58/img/undraw_typewriter.svg)
+
 ドキュメンテーションの作成に時間を取られて開発が疎かになっていては本末転倒です．Docusaurus では Markdown に加えて **[MDX](https://mdxjs.com/)** を採用し，これらでドキュメントやブログ記事を書くだけで簡単に静的HTMLファイルを公開できるようにしています．MDXのおかげで，[MarkdownにJSXコンポーネントを埋め込む](https://v2.docusaurus.io/docs/next/markdown-features/react)こともできます（これがマジで強い）．
 
 ## 2. Built Using React
 
+![Built Using React](https://d33wubrfki0l68.cloudfront.net/41ba44883c2e0eed9ebc0f53b29566e093573215/d656c/img/undraw_react.svg)
+
 React コンポーネントを再利用してレイアウトを拡張できます．見るのも嫌になるようなお硬いUIから開放され，Reactを通じて好きなだけカスタマイズできるでしょう．~~sphinxテメーのことだよ返事しろ~~
 
 ## 3. Content Search
+
+![Content Search powered by Algolia](https://d33wubrfki0l68.cloudfront.net/9828ec35c3e1903c4b6a29d30a58f4087cec4aca/d6c6a/img/undraw_algolia.svg)
 
 デフォルトで文書検索システム「[DocSearch](https://docsearch.algolia.com/)」が含まれています．設定ファイルから有効化することで，`Ctrl+K` というショートカットからすぐに検索を行なうことができます．めっちゃ便利 :eyes:
 
@@ -40,6 +46,7 @@ cf. [DocSearch: Search made for documentation | DocSearch](https://docsearch.alg
 
 ## 4. Ready for Translations
 
+![Ready for Translations](https://d33wubrfki0l68.cloudfront.net/d8b88dcb3dbfe231345679852dcad7bc40c4ec14/cf922/img/undraw_around_the_world.svg)
 （※2021/02/13現在，ほとんど実現できているが実際には工事中）
 
 > Localization comes pre-configured. Use Crowdin to translate your docs into over 70 languages.
@@ -47,6 +54,8 @@ cf. [DocSearch: Search made for documentation | DocSearch](https://docsearch.alg
 cf. [i18n | Docusaurus](https://v2.docusaurus.io/docs/next/i18n/introduction)
 
 ## 5. Document Versioning
+
+![Document Versioning](https://d33wubrfki0l68.cloudfront.net/d751ee750975e36973e1c96283e0d18bdc7a85f9/50077/img/undraw_version_control.svg)
 
 （※2021/02/13現在，ほとんど実現できているが実際には工事中）
 
@@ -76,7 +85,7 @@ cf. [Versioning | Docusaurus](https://v2.docusaurus.io/docs/next/versioning)
 
 > - Node.js version >= 10.15.1 or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
 > - Yarn version >= 1.5 (which can be checked by running yarn --version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
-> cf. [Installation | Docusaurus](https://v2.docusaurus.io/docs/next/installation    )
+> cf. [Installation | Docusaurus](https://v2.docusaurus.io/docs/next/installation)
 
 上記の通り，v10.5 以上の Node.js と v1.5 以上の Yarn が必要です．既存のものがあればそれを活用しても問題ないと思います．もし未だ手元に環境がない場合，NVM（Node.js のバージョン管理ツール）経由で最新の LTS 版 Node.js をインストールするのが良いでしょう．
 
@@ -101,7 +110,7 @@ $ command -v nvm
 
 詳細は以下を参照のこと
 
-cf. https://github.com/nvm-sh/nvm#installing-and-updating
+cf. [Installing and Updating | nvm-sh/nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ### 1.2 Node.js (LTS version) のインストール
 
@@ -118,17 +127,13 @@ $ npm install -g yarn
 
 cf. [nvm(Node Version Manager)を使ってNode.jsをインストールする手順 - Qiita](https://qiita.com/ffggss/items/94f1c4c5d311db2ec71a)
 cf. [Introduction | Yarn - Package Manager](https://yarnpkg.com/getting-started)
+
+![Logo | Node.js](https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg)
 :::
 
 ## 2 `npx` 経由でプロジェクトを作成する
 
-> The easiest way to install Docusaurus is to use the command line tool that helps you scaffold a skeleton Docusaurus website.
-> You can run this command anywhere in a new empty repository or within an existing repository,
-> it will create a new directory containing the scaffolded files.
-> 
-> `npx @docusaurus/init@latest init [name] [template]`
-
-[NPX](https://github.com/npm/npx#readme) を活用してプロジェクトを作成するというアプローチを採用しています．
+Docusaurus では，[NPX](https://github.com/npm/npx#readme) を活用してプロジェクトを作成するというアプローチを採用しています．
 
 :::details NPXとは
 馴染みのない方もいるかも知れないので一言説明しておくと，「NPMで公開されているライブラリを**インストールなしで**実行できる」コマンドです．
@@ -154,6 +159,8 @@ cf. [docusaurus/packages/docusaurus-init/templates at master · facebook/docusau
 :::
 
 こうして，プロジェクトを育てていくための **足場** あるいは **土台** となるべきものが生成されました．
+
+![工事現場で組み立てた足場の上を歩いている、ヘルメットをかぶった作業員のイラスト](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/Scaffold.png?raw=true)*工事現場で組み立てた足場の上を歩いている、ヘルメットをかぶった作業員のイラスト*
 
 :::details ディレクトリ構造の詳細
 ```shell
@@ -189,18 +196,22 @@ my-website
 
 ```bash
 $ cd website
-$ yarn run start --port 3333
+$ yarn start --port 3333
 ```
 
 コンパイルが済んだら http://localhost:3333 へアクセスしてみましょう．もちろんポート番号は任意に変更できます．
+
+[![screenshot of top page on development server](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/localhost3333.png?raw=true)*HINC OMNE PRINCIPIVM*](http://localhost:3333)
 
 
 ## 3. [GitHub Pages](https://docs.github.com/ja/github/working-with-github-pages/about-github-pages) にデプロイする
 
 ローカルで万全に動いて気持ちいいかと思いますが，チュートリアルの最後に **[GitHub Pages](https://docs.github.com/ja/github/working-with-github-pages/about-github-pages)** への自動デプロイまで設定してしまいましょう．
-このフェーズまでやり遂げてしまえば，あとはリポジトリへプッシュするたびに自動でビルドが走り，（初心者フロントエンドエンジニア諸兄の多くにとって）悲願の完全無料静的ファイルホスティング環境が手に入ります．
+このフェーズまでやり遂げてしまえば，あとはリポジトリへプッシュするたびに自動でビルドが走り，（初心者フロントエンドエンジニア諸兄の多くにとって）**悲願の完全無料静的ファイルホスティング環境**が手に入ります．
 
 あと少しだけ頑張って，次の二つの設定を済ませてしまいましょう！
+
+![GitHub Logo](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/GitHub-Mark-120px-plus.png?raw=true)
 
 ### 3.1 `docusaurus.config.js` の設定
 
@@ -209,7 +220,7 @@ $ yarn run start --port 3333
 ```js:docusaurus.config.js
 module.exports = {
   // ...
-  url: 'https://_username_.github.io',
+  url: 'https://_username_.github.io', 
   baseUrl: '/your-repository-name/',
   projectName: '_username_.github.io',
   organizationName: '_username_',
@@ -291,12 +302,15 @@ $ ssh -T exampleAlias
 ```
 :::
 
+![Git logo](https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg)
+
 
 #### 3.2.2 `.github/workflows/documentation.yml` ファイルの作成
 
 GitHub Actions を利用するためには，リポジトリ内に `.github` というディレクトリを作成し，その中へさらに `workflows` ディレクトリを作ることが推奨されています．実際に実行する `Action` スクリプトは，このディレクトリ直下に置くことになります．
 
 ```bash
+$ cd website
 $ mkdir -p .github/workflows/
 $ vi .github/workflows/documentation.yml
 ```
@@ -378,35 +392,56 @@ jobs:
 
 ```bash
 $ cd website
+$ #export YOUR_HOST_ALIAS=exampleAlias  # for SSH
+$ #export YOUR_GITHUB_USERNAME=__username__
+$ #export YOUR_REPOSITORY_NAME=your-repository-name
 $ git init
 $ git branch -M main
+$ git config --local user.email "you@example.com"
+$ git config --local user.name "${YOUR_GITHUB_USERNAME}"
 $ git add .
 $ git commit -m "Initial commit"
-$ export YOUR_HOST_ALIAS=exampleAlias  # for SSH
-$ export YOUR_GITHUB_USERNAME=__username__
-$ export YOUR_REPOSITORY_NAME=your-repository-name
 $ git remote add origin $YOUR_HOST_ALIAS:$YOUR_GITHUB_USERNAME/$YOUR_REPOSITORY_NAME.git
 $ git push --set-upstream origin main
 ```
+
+!["fictional-chainsaw" - this is my reccomended repository name](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_name.png?raw=true)*ところでこれは俺が引き当てたくそカッコイイ名前*
+
+---
 
 再度 GitHub のリモートページのページに戻ります．二つ確認事項があります．
 
 1. ディレクトリとファイル，README がうまく表示されたでしょうか？
 2. HTTPS 接続ではなく SSH 接続で滞りなくプッシュすることが出来たでしょうか？
 
-上記が確認できたら，次に環境変数 `GH_PAGES_DEPLOY` を登録します．この変数は，リポジトリの Settings >> Secrets >> Repository secrets に格納します．ここへ入力するのは，SSH 接続に利用した 鍵ペアの **秘密鍵** の値です．同様の手順でコピペしてきましょう．こうすることで，Action Script からであっても，`${{ secrets.GH_PAGES_DEPLOY }}` として参照することが出来るようになります．
+上記が確認できたら，次に環境変数 `GH_PAGES_DEPLOY` を登録します．この変数は，リポジトリの Settings >> Secrets >> Repository secrets に格納します．
+
+![Settings >> Secrets >> Repository secrets](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_secrets.png?raw=true)*https://github.com/\_username\_/\_repositoryName\_/settings/secrets/actions*
+
+ここへ入力するのは，SSH 接続に利用した 鍵ペアの **秘密鍵** の値です．同様の手順でコピペしてきましょう．こうすることで，Action Script からであっても，`${{ secrets.GH_PAGES_DEPLOY }}` として参照することが出来るようになります．
+
+![Input secret key's value](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_input_secret.png?raw=true)*秘密鍵の中身をコピペする*
 
 :::message alert
 公開鍵ではなく，**秘密鍵**をやりとりすることになります．細心の注意を払って作業してください．
 :::
 
+![Confirm secret key registered](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_confirm_secret.png?raw=true)*リポジトリの環境変数が設定されていることを確認する*
+
 #### 3.2.4 最後の仕上げ
+
+
+![Go to GitHub Actions Tab](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_action_workflow.png?raw=true)*Go to GitHub Actions Tab*
 
 最後の仕上げとして，ページ上部センターあたりにある Actions タブへ移りましょう．
 
 画面左側に "All workflows" がでているかと思います（もし「設定ファイルを新規作成する」的な画面になっていたら焦らず `.github/workflows/documentation.yml` をコピペしてください．その後，`main` ブランチにコミットします）．
 
+![Run workflow](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_run_workflow.png?raw=true)*Run workflow*
+
 `documentation` というワークフローが見つかるでしょうか？それをクリックすると `This workflow has a workflow_dispatch event trigger` という青いバナーが見えるはずです．その右に見える "Run workflow" を選択するとポップアップが出てきます．`main` になっていることを確認し，緑の `Run workflow` をクリックして実行を確定します．
+
+![workflow is running](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_workflow_running.png?raw=true)*workflow is running*
 
 そのまま待機しているとページが遷移し，ワークフローが実行されている様子が観察できると思います．ワークフロー名をクリックするとより詳細なジョブの実効過程を見ることも出来ます．
 
@@ -414,7 +449,9 @@ $ git push --set-upstream origin main
 
 そうこうしているうちに無事ビルド＆デプロイが終わったでしょうか？リモートリポジトリのトップページに戻ってみると，何やら右側の Languages の上にロケットが飛んでいるではありませんか～～！アイコンをクリックして Activity log を開き，さらに `View deployment` ボタンを押せば，ページがデプロイされていることを確認できるかと思います．
 
-これで，`documentation` ブランチに何らかの変更があった場合あるいは手動で発火させた場合にワークフローが実行されるようになりました．
+![github-pages is Active](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_navbar_right_rocket.png?raw=true)*github-pages is Active 🚀*
+
+これで，**`documentation` ブランチに何らかの変更があった場合**，あるいは今回のように**手動で発火させた場合**にワークフローが実行されるようになりました．
 
 ---
 
@@ -424,7 +461,7 @@ $ git push --set-upstream origin main
 
 # Customize
 
-Docusaurus をカスタマイズするためには，以下のいくつかの方法があります．それぞれ適用範囲を確認し，正しいアプローチで快適に楽しくつくりましょう．**"Build optimized websites quickly, focus on your content"** をお忘れなく～
+Docusaurus をカスタマイズするためには，以下のいくつかの方法があります．それぞれ適用範囲を確認し，正しいアプローチで快適に楽しくつくりましょう．**"Build optimized websites quickly, focus on your content"** をお忘れなく……
 
 - サイドバーの調整： `sidebars.js`
 - 上記以外の設定： `docusaurus.config.js`
@@ -771,22 +808,178 @@ Crowdin から翻訳作業に参加するために必要なことは，以下の
 
 ### 1. Crowdin に Sign up & Log in する
 
+[![Sign up to Crowdin.com](https://raw.githubusercontent.com/Ningensei848/lifelog/zenn/static/img/what-is-Docusaurus/crowdin_signup.png?raw=true)*Sign up to Crowdin*](https://accounts.crowdin.com/register)
+
+まずはともあれ，Crowdin にアカウントを登録します．メールアドレス・ユーザー名とパスワードでも作成できますが，SNSアカウントを連携させるのが便利かと思います．
 
 ### 2. Docusaurus v2 の翻訳プロジェクトのページを開く
+
+[Docusaurus v2 の翻訳プロジェクトページ](https://crowdin.com/project/docusaurus-v2) を開きましょう．現時点 (2021-02-14) においては以下のような状態であることがわかるかと思います．
+
+[![Achievement by language | Docusaurus v2 translations in Crowdin](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/crowdin_docusaurus_v2_home.png?raw=true)*Achievement by language*](https://crowdin.com/project/docusaurus-v2)
+
+ここからさらに，翻訳したい言語のページを開きます．日本語に翻訳したいので，Japanese をクリックしてみます．
+
+[![Japanese | Overview | Docusaurus v2 translations in Crowdin](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/crowdin_docusaurus_v2_jp_overview.png?raw=true)*Achievement Overview in Japanese*](https://crowdin.com/project/docusaurus-v2/ja)
+
+フォルダごとにどれくらい翻訳が進んでいるか見えるかと思います．「XX %・YY %」という表示は「翻訳済み割合・承認された翻訳済み割合」を表しています．このように分けてあるのは，アカウントさえあれば誰でも翻訳に参加できてしまうため，粗悪な翻訳内容であっても *translated ratio* としてカウントされてしまうからです．質を担保するために **翻訳内容の承認** というプロセスを経てはじめて，翻訳されたドキュメントと認められることになります．
+
+:::message
+現時点で100%になっているフォルダもありますが，すべて私一人の翻訳でしかありません．翻訳こそすれ，**信頼できないドキュメント**という判断をされても仕方がない状況です．
+:::
+
 ### 3. 翻訳の優先順位に従って実際に翻訳作業を進める
+
+実際に翻訳作業に参加してみましょう．どのような手順で進めていけばいいのかについては，[以下の issue](https://github.com/facebook/docusaurus/issues/3526) に書いてあります．
+
+:::details Help us translate the Docusaurus 2 website #3526
+> Last updated: 11/02/2021
+> 
+> ## Help us translate the Docusaurus 2 website
+> The Docusaurus 2 i18n support is ready, and it's time for Docusaurus 2 website to be translated
+> 
+> This issue is here to organize the translation effort.
+> 
+> ## Translation process
+> * Get familiar with the Docusaurus i18n support
+> * Sign-up on [Crowdin](https://crowdin.com/) and join the [Docusaurus-v2](https://crowdin.com/project/docusaurus-v2) project
+> * Get familiar with the Crowdin translation UI, as you will need to use it to translate JSON and Markdown files
+> * Ask for your locale to be enabled on Crowdin
+> * Translate the content
+> 
+> ## Files to translate
+> Please translate in priority:
+> 
+> * The `website/i18n/en` files (layout/homepage JSON files)
+> * The `website/community` md files
+> * The `website/docs` md files
+> 
+> Please **do not translate** for now:
+> 
+> * All the `.mdx` files
+> * Versioned docs
+> * Frontmatter such as id, slug, URLs...
+> 
+> ## Preview your translation work
+> Unfortunately, it is not possible for you to test the translated site locally (the Crowdin auth system is not very flexible)
+> 
+> If you are actively working on a locale, please ask to add that locale to our i18n staging deployment:
+> 
+> * Preview: https://docusaurus-i18n-staging.netlify.app/
+> * Netlify site: https://app.netlify.com/sites/docusaurus-i18n-staging
+> * Trigger a build: `curl -X POST -d {} https://api.netlify.com/build_hooks/602511032ce0923d1b6cd220` (manually for now)
+> 
+> ## Production
+> We ask for a minimal amount of translations to be reached:
+> 
+> * `website/i18n/en` > 90%
+> * `website/community` > 40%
+> * `website/docs` > 20%
+> 
+> Once a locale has enough translations, and the preview looks good on the i18n staging environment, we'll add it to our production site.
+> 
+> ## Theme translation fallback
+> The classic theme also ships with some default translation bundles for theme labels, like "next" / "previous" pagination buttons... Please help us provide default theme label translations for your own language/locale.
+> 
+> You can just copy this file, localize the messages and send a PR:
+> https://github.com/facebook/docusaurus/blob/master/packages/docusaurus-theme-classic/codeTranslations/fr.json
+> 
+> Thanks for your help 😃
+:::
+
+要約すると，まず翻訳に取り組むべきは以下のフォルダ配下のファイルです．
+
+- `website/i18n/en`
+- `website/community`
+- `website/docs`
+
+上述したように，ドキュメントがいくら翻訳されていても，それが**承認: Approved** されなければ意味がありません．しかし，よほどダイバーシティに富んだグローバル開発チームでもない限りレビュワーを確保するのは難しいし，そのようなチームであれば自前で翻訳を用意することが出来るでしょう．
+
+そこで，非母語話者である開発チームの管理者が**翻訳を承認するために参考とする材料**が用意されています．それが **Upvote** です．
+
+[![Editor view | Docusaurus v1 translations in Crowdin](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/crowdin_docusaurus_v1_jp_editor.png?raw=true)](https://crowdin.com/translate/docusaurus/2499/en-ja)
+
+例えばこの画面では，すでにいくつかの和文翻訳が存在しています．右側真ん中すぐ下辺りをみると，誰かの提案した翻訳内容が表示されています．このすぐ隣りにある「＋と－」こそが **Upvote / Downvote** です．
+
+もしこの先人の**翻訳がよさそうと感じたのであれば，それはぜひ ＋ を押して Upvote すべき**です．あなたが母語話者の一人としてそれを読み，自然に内容を理解できたということを示しておけば，それが積もり積もって「**多数の匿名レビュワーの査読を経た**」ことの証明になります．外国語をイチから母語に翻訳するのはなかなか難しいかと思いますが，まずはこの査読タスクに参加することから始めてみてください．
+
+そして次に目指すべき段階は，Docusaurus の i18n 担当者から次のように示されています．
+
+> 翻訳された分量の割合について，最低限度の閾値として以下の数値に達することをお願いしています．
+>
+> - website/i18n/en > 90%
+> - website/community > 40%
+> - website/docs > 20%
+>
+> ロケールに十分な翻訳があり，i18nのステージング環境でプレビューが良く見えるようになったら，本番環境のサイトに追加します．
+
+`website/docs` は移り変わりが比較的早く，かつ分量も多いため低めのハードルが設定されています．しかし，真に翻訳するべきはここに配置されているファイルです．[皆様のご参加をお待ちしています](https://crowdin.com/project/docusaurus-v2/ja#/website/docs)．
+他の二つについては比較的分量が少なく，すでに私一人でもすべて翻訳出来る程度のものでした．こちらもぜひ[皆様のレビューをお待ちしています](https://crowdin.com/project/docusaurus-v2/ja#/website/i18n)．
+
+---
+
+ここまでこの記事を読んで「Docusaurus 面白そう！」とか「革新的だしウチでもつかいたい！」という方が増えてくれたら嬉しい限りです．そして使い方を覚える段階で公式ドキュメントを読む機会が多くなるかと思いますが，その際にお手元の翻訳をぜひわずかでもこの Crowdin での翻訳プロジェクトに供与していただけたら幸いです．
 
 # Future Work
 
-- 具体的にどのようにすれば既存プロジェクトに組み込みやすいのか，そのチュートリアル
-- TypeScript の組み込み方
+- 既存プロジェクトへの組み込み方；そのチュートリアル
+- TypeScript と共存するためのアプローチ
   - `.tsx` 形式のページの作り方
   - MDX で typescript を使えるのか
-
+- スタイリングのチュートリアル
+- プラグインの導入のチュートリアル
+- テーマの利用方法
+- ヴァージョン管理の方法
+- 個別プロジェクトにおけるi18n; 国際化の設定方法
 
 # Reference
 
-- [nvm(Node Version Manager)を使ってNode.jsをインストールする手順 - Qiita（閲覧：2021/02/13）](https://qiita.com/ffggss/items/94f1c4c5d311db2ec71a)
+### Github
+
+- [GitHub Pages について - GitHub Docs](https://docs.github.com/ja/github/working-with-github-pages/about-github-pages)
+- [GitHub Pages サイトのカスタムドメインを設定する - GitHub Docs](https://docs.github.com/ja/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site)
+
+### Docusaurus
+
+- [Installation | Docusaurus](https://v2.docusaurus.io/docs/next/installation)
+- [Routing | Creating Pages | Docusaurus](https://v2.docusaurus.io/docs/next/creating-pages#routing)
+- [`docusaurus.config.js` settings | Deployment | Docusaurus](https://v2.docusaurus.io/docs/next/deployment#docusaurusconfigjs-settings)
+- [Triggering deployment with GitHub Actions | Deployment | Docusaurus](https://v2.docusaurus.io/docs/next/deployment#triggering-deployment-with-github-actions)
+- [Sidebar | Docusaurus](https://v2.docusaurus.io/docs/next/sidebar)
+- [Using Algolia DocSearch | Search | Docusaurus](https://v2.docusaurus.io/docs/next/search#using-algolia-docsearch)
+- [What goes into a `docusaurus.config.js`? | Configuration | Docusaurus](https://v2.docusaurus.io/docs/next/configuration#what-goes-into-a-docusaurusconfigjs)
+- [API | docusaurus.config.js | Docusaurus](https://v2.docusaurus.io/docs/next/docusaurus.config.js)
+- [i18n | Docusaurus](https://v2.docusaurus.io/docs/next/i18n/introduction)
+- [docusaurus/packages/docusaurus-init/templates at master · facebook/docusaurus](https://github.com/facebook/docusaurus/tree/master/packages/docusaurus-init/templates)
+
+### Others
+
+- [Front Matter | Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/front-matter/)
+
+---
+
+- [DocSearch: Search made for documentation | DocSearch](https://docsearch.algolia.com/)
+
+---
+
+- [i18n - Wikipedia](https://en.wikipedia.org/wiki/Internationalization_and_localization)
+- [Localization Management Platform for agile teams | Crowdin](https://crowdin.com/)
+- [Docusaurus v2 translations in Crowdin](https://crowdin.com/project/docusaurus-v2)
+
+---
+
+- [Installing and Updating | nvm-sh/nvm: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [Introduction | Yarn - Package Manager](https://yarnpkg.com/getting-started)
+- [npm/npx: npm package executor | GitHub](https://github.com/npm/npx#readme)
+
+---
+
+- [Zenn CLIで記事・本を管理する方法](https://zenn.dev/zenn/articles/zenn-cli-guide) by [Zenn公式](https://zenn.dev/zenn)
+
+### Third party articles
+
+- [nvm(Node Version Manager)を使ってNode.jsをインストールする手順 - Qiita](https://qiita.com/ffggss/items/94f1c4c5d311db2ec71a)
 - [お前らのSSH Keysの作り方は間違っている - Qiita](https://qiita.com/suthio/items/2760e4cff0e185fe2db9)
-- [Docusaurus v2 で多言語化（閲覧：2021/02/13）](https://zenn.dev/su8ru/scraps/3d47d496e9be34 ) by [すばる](https://zenn.dev/su8ru)
-
-
+- [GitHubユーザーのSSH鍵6万個を調べてみた](https://hnw.hatenablog.com/entries/2014/07/05)
+- [SSH KeyをEd25519に変更した - fu9da](https://www.fu9da.com/post/change-ed25519)
+- [Docusaurus v2 で多言語化](https://zenn.dev/su8ru/scraps/3d47d496e9be34 ) by [すばる](https://zenn.dev/su8ru)
