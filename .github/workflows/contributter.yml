@@ -11,6 +11,7 @@ jobs:
     env:
       MY_SCREEN_NAME: Ningensei848
       MY_LANGUAGE: ja
+      TZ: 'Asia/Tokyo'
       CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
       CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -27,4 +28,4 @@ jobs:
           chmod +x contributter.sh
       - name: Change Name
         run: |
-          ./tweet.sh post "$(./contributter.sh ${MY_SCREEN_NAME} 0)"
+          ./tweet.sh post "$(./contributter.sh ${MY_SCREEN_NAME})"
