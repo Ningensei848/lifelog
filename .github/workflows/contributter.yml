@@ -27,4 +27,4 @@ jobs:
           chmod +x contributter.sh
       - name: Change Name
         run: |
-          ./tweet.sh post "$(./contributter.sh ${MY_SCREEN_NAME})"
+          ./tweet.sh post "$(./contributter.sh ${MY_SCREEN_NAME} 0)"
