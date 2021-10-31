@@ -53,28 +53,28 @@ properties:
 
 #### eight forms
 
-- [`empty`](http://localhost:8000/articles/jtd-in-5-minutes#empty): Java でいう `Object` や Typescript でいう `any` を扱う形式
+- [`empty`](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#empty): Java でいう `Object` や Typescript でいう `any` を扱う形式
 <!-- The empty form is like a Java Object or TypeScript any. -->
 
-- [`type`](http://localhost:8000/articles/jtd-in-5-minutes#type): Java や Typescript でいう `primitive type` を扱う形式
+- [`type`](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#type): Java や Typescript でいう `primitive type` を扱う形式
 <!-- The type form is like a Java or TypeScript primitive type. -->
 
-- [`enum`](http://localhost:8000/articles/jtd-in-5-minutes#enum): Java や Typescript でいう `enum` を扱う形式
+- [`enum`](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#enum): Java や Typescript でいう `enum` を扱う形式
 <!-- The enum form is like a Java or TypeScript enum. -->
 
-- [`elements`](http://localhost:8000/articles/jtd-in-5-minutes#elements): Java でいう `List<T>` や Typescript でいう `T[]` を扱う形式
+- [`elements`](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#elements): Java でいう `List<T>` や Typescript でいう `T[]` を扱う形式
 <!-- The elements form is like a Java List<T> or TypeScript T[]. -->
 
-- [`properties`](http://localhost:8000/articles/jtd-in-5-minutes#properties): Java でいう `Class` や Typescript でいう `interface` を扱う形式
+- [`properties`](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#properties): Java でいう `Class` や Typescript でいう `interface` を扱う形式
 <!-- The properties form is like a Java class or TypeScript interface. -->
 
-- [`values`](http://localhost:8000/articles/jtd-in-5-minutes#values): Java でいう `Map<String, T>` や Typescript でいう `{ [key: string]: T}` を扱う形式
+- [`values`](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#values): Java でいう `Map<String, T>` や Typescript でいう `{ [key: string]: T}` を扱う形式
 <!-- The values form is like a Java Map<String, T> or TypeScript { [key: string]: T}. -->
 
-- [`discriminator`](http://localhost:8000/articles/jtd-in-5-minutes#discriminator): タグ付き Union を扱う形式[^1]
+- [`discriminator`](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#discriminator): タグ付き Union を扱う形式[^1]
 <!-- The discriminator form is like a tagged union. -->
 
-- [`ref`](http://localhost:8000/articles/jtd-in-5-minutes#ref): スキーマを再利用するためのもの．通常は同じことを繰り返さないようにする．
+- [`ref`](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#ref): スキーマを再利用するためのもの．通常は同じことを繰り返さないようにする．
 <!-- The ref form is for re-using schemas, usually so you can avoid repeating yourself. -->
 
 [^1]: cf. [TypeScript 4.6 で起こるタグ付きユニオンのさらなる進化 | Zenn](https://zenn.dev/uhyo/articles/ts-4-6-destructing-unions)
@@ -177,7 +177,7 @@ properties:
 
 <!-- Accepts objects that have a name property (which must be a string) and a isAdmin property (which must be a boolean). If the object has any extra properties, then it’s invalid. So this is OK: -->
 
-```json:example OK
+```json:OK
 { "name": "Abraham Lincoln", "isAdmin": true }
 ```
 
@@ -185,11 +185,11 @@ properties:
 
 <!-- But neither of these are: -->
 
-```json:example NG; isAdmin must be boolean
+```json:NG; isAdmin must be boolean
 { "name": "Abraham Lincoln", "isAdmin": "yes" }
 ```
 
-```json:example NG; extra key is invalid
+```json:NG; extra key is invalid
 { "name": "Abraham Lincoln", "isAdmin": true, "extra": "stuff" }
 ```
 
@@ -216,11 +216,11 @@ properties:
 
 <!-- If there’s a middleName property on the object, it has to be a string. But if there isn’t one, that’s OK. So these are valid: -->
 
-```json:example OK
+```json:OK
 { "name": "Abraham Lincoln", "isAdmin": true }
 ```
 
-```json:example OK
+```json:OK
 { "name": "William Sherman", "isAdmin": false, "middleName": "Tecumseh" }
 ```
 
@@ -228,7 +228,7 @@ properties:
 
 <!-- But this is not: -->
 
-```json:example NG
+```json:NG
 { "name": "John Doe", "isAdmin": false, "middleName": null }
 ```
 
@@ -256,7 +256,7 @@ properties:
 
 <!-- Would accept: -->
 
-```json:example OK
+```json:OK
 { "name": "Abraham Lincoln", "isAdmin": true, "extra": "stuff" }
 ```
 
@@ -422,7 +422,7 @@ properties:
 
 <!-- Will accept things like: -->
 
-```json:example OK
+```json:OK
 { "userLoc": { "lat": 50, "lng": -90 }, "serverLoc": { "lat": -15, "lng": 50 }}
 ```
 
@@ -436,7 +436,7 @@ properties:
 
 # The `nullable` keyword
 
-どんなスキーマでも，すなわちそれがいかなる「[形式](http://localhost:8000/articles/jtd-in-5-minutes#eight-forms)」であっても，`nullable` を付けることができます．また，それによって `null` がそのスキーマで受け入られうる値となります．
+どんなスキーマでも，すなわちそれがいかなる「[形式](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#eight-forms)」であっても，`nullable` を付けることができます．また，それによって `null` がそのスキーマで受け入られうる値となります．
 
 <!-- You can put nullable on any schema (regardless of which “form” it takes), and that will make null be an acceptable value for the schema. For example, -->
 
@@ -457,7 +457,7 @@ properties:
 <!-- That schema will accept both "foo" and null. -->
 
 :::message
-ただし， [`discriminator` における `mapping` 内](http://localhost:8000/articles/jtd-in-5-minutes#discriminator)においては，スキーマに `nullable` をつけることはできません．
+ただし， [`discriminator` における `mapping` 内](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#discriminator)においては，スキーマに `nullable` をつけることはできません．
 
 <!-- Note: you can’t put nullable on a schema in a discriminator mapping.  -->
 
@@ -483,10 +483,88 @@ properties:
 
 <!-- That’s all you really need to know about JTD to be productive.  -->
 
-もし JTD を使い始めようと思ってくれたなら，次のステップは[〈自分の好きなプログラミング言語での実装を見つけること〉](https://jsontypedef.com/docs/implementations/)となるでしょう．
+もし JTD を使い始めようと思ってくれたなら，次のステップは[〈自分の好きなプログラミング言語での実装を見つけること〉](https://zenn.dev/ningensei848/articles/jtd-in-5-minutes#next-step)となるでしょう．
 
 <!-- If you want to get started using JTD, your next step would be to find an implementation in your preferred programming language. -->
+
+:::message alert
+[Learn JSON Typedef in 5 Minutes | JSON Type Definition](https://jsontypedef.com/docs/jtd-in-5-minutes/) の（勝手な）和訳はここまでです．以下では，各プログラミング言語での実装を紹介しています．
+:::
+
+# Next step
+
+以下では JSON Type Definition の各プログラミング言語における実装事例をまとめています．
+
+<!-- This document is a curated list of implementations of JSON Type Definition.  -->
+
+JSON Typedef は [_open standard_](https://tools.ietf.org/html/rfc8927) です．すなわち，正式な規格を読んだり独自に実装したりといったことが，誰でも自由に行なえます．
+
+<!-- JSON Typedef is an open standard; anyone can read the formal standard and implement on their own for free. -->
+
+:::message
+ある実装がここに掲載されているということは，その実装が [the JTD test suite](https://github.com/jsontypedef/json-typedef-spec) に準拠していることが知られているということを意味します．このリストに掲載されていることが**その実装が完全であると保証するものではありません**．一方でライブラリやツールがここに掲載されていないからといって，それが良くないとか何らかの形で無効であるということではありません．
+:::
+
+<!-- If an implementation is listed here, that means it is known to comply with the JTD test suite. This list is not guaranteed to be complete, and just because a library or tool isn’t listed here doesn’t mean it’s not good or somehow invalid. -->
+
+## Validation
+
+### JavaScript / TypeScript
+
+- [`jtd`](https://github.com/jsontypedef/json-typedef-js)
+  - npm パッケージとして提供されています
+  - TypeScript 製であり，ブラウザでも Node.js でも動作します
+  <!-- - implements validation. Written in TypeScript, runs in Node.js and browsers. -->
+- [`ajv`](https://github.com/ajv-validator/ajv)
+  - npm パッケージとして提供されています
+  - `v7.1.0` から _validation_ にも対応しています
+  <!-- - implements validation starting with version v7.1.0. -->
+
+### Python
+
+- [`jtd`](https://github.com/jsontypedef/json-typedef-python)
+  - PyPI パッケージとして提供されています
+  <!-- - The jtd package on PyPI implements validation. -->
+
+### Java
+
+- [`com.jsontypedef.jtd`](https://github.com/jsontypedef/json-typedef-java)
+  - Maven Central のパッケージとして提供されています
+  - Jackson と Gson とともに動作します
+  <!-- - package on Maven Central implements validation. Works with Jackson and Gson. -->
+
+### Go
+
+- [`json-typedef-go`](https://github.com/jsontypedef/json-typedef-go)
+  - Go のモジュールとして GitHub 上で提供されています
+  <!-- - The github.com/jsontypedef/json-typedef-go module implements validation. -->
+
+### C#
+
+- [`Jtd.Jtd`](https://github.com/jsontypedef/json-typedef-csharp)
+  - NuGet のパッケージとして提供されています
+  - `System.Text.Json` と `Newtonsoft.Json` とともに動作します
+  <!-- - package on NuGet implements validation. Works with `System.Text.Json` and `Newtonsoft.Json`. -->
+
+### Ruby
+
+- [`jtd`](https://github.com/jsontypedef/json-typedef-ruby)
+  - RubyGems における gem として提供されています
+  <!-- - gem on RubyGems implements validation. -->
+
+### Rust
+
+- [`jtd`](https://github.com/jsontypedef/json-typedef-rust)
+  - crates.io におけるパッケージとして提供されています
+  - `serde / serde_json` とともに動作します
+  <!-- - package on crates.io implements validation. Works with `serde / serde_json`. -->
+
+## Code Generation
+
+- [`jtd-codegen`](https://jsontypedef.com/docs/typescript-codegen)
+  - 上で紹介したすべての言語（**TypeScript**, **Python**, **Java**, **Go**, **C#**, **Ruby** , **Rust**）をサポートしています
 
 # Refference
 
 - [Learn JSON Typedef in 5 Minutes | JSON Type Definition](https://jsontypedef.com/docs/jtd-in-5-minutes/)
+- [Implementations of JSON Typedef | JSON Type Definition](https://jsontypedef.com/docs/implementations/)
