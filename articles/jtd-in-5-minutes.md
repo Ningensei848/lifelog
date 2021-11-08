@@ -2,7 +2,7 @@
 title: "５分で理解する JSON Type Definition"
 emoji: "🖐"
 type: "tech"
-topics: ["json", "JTD", "validation", "TypeScript"]
+topics: ["JSONTypedDefinition", "JTD", "validation", "JSON", "TypeScript"]
 published: false
 ---
 
@@ -568,3 +568,15 @@ JSON Typedef は [_open standard_](https://tools.ietf.org/html/rfc8927) です�
 
 - [Learn JSON Typedef in 5 Minutes | JSON Type Definition](https://jsontypedef.com/docs/jtd-in-5-minutes/)
 - [Implementations of JSON Typedef | JSON Type Definition](https://jsontypedef.com/docs/implementations/)
+
+---
+
+- [RFC 8927: JSON Type Definition を読んだ - no24.org](https://blog.no24.org/articles/read-rfc-8927/)
+  - きちんと [RFC 8927](https://tools.ietf.org/html/rfc8927) に目を通した偉人によるまとめ
+- [複数のサブスキーマを持つデータへの対応におけるスキーマ記述言語の比較 | IIJ Engineers Blog](https://eng-blog.iij.ad.jp/archives/6813)
+
+  - `JSON Schema`, `OpenAPI`, `CDDL` を踏まえたこれまでの流れがまとまっている
+
+- `CDDL` について
+  - [スキーマはもう全部 CDDL でいいんじゃないかな - OPTiM TECH BLOG](https://tech-blog.optim.co.jp/entry/2020/12/10/100000)
+  - [CDDL の紹介｜レピダム](https://lepidum.co.jp/blog/2020-03-09/cddl/)
