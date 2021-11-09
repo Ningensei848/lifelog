@@ -3,7 +3,7 @@ title: "５分で理解する JSON Type Definition"
 emoji: "🖐"
 type: "tech"
 topics: ["JSONTypedDefinition", "JTD", "validation", "JSON", "TypeScript"]
-published: false
+published: true
 ---
 
 :::message alert
@@ -580,3 +580,11 @@ JSON Typedef は [_open standard_](https://tools.ietf.org/html/rfc8927) です�
 - `CDDL` について
   - [スキーマはもう全部 CDDL でいいんじゃないかな - OPTiM TECH BLOG](https://tech-blog.optim.co.jp/entry/2020/12/10/100000)
   - [CDDL の紹介｜レピダム](https://lepidum.co.jp/blog/2020-03-09/cddl/)
+
+# 補遺
+
+JTD を活用した Ajv による 自動的な型定義・検証関数生成の話
+https://zenn.dev/ningensei848/articles/getting-started-with-ajv-on-jtd
+
+JSON Typed Definition Validator： 今すぐ JTD を試したいあなたに
+https://jtd-validator.vercel.app/

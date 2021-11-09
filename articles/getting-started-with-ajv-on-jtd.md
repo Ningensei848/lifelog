@@ -3,7 +3,7 @@ title: "JSON Typed Definition で始める Ajv 入門"
 emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Ajv", "JSONTypedDefinition", "JTD", "validation", "TypeScript"]
-published: false
+published: true
 ---
 
 フロントエンドでもバックエンドでも共通の規格として採用され，かつ一般的な人類が普遍的に理解できるし書ける ―――
