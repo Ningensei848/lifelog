@@ -283,3 +283,8 @@ _JSON Typed Definition は安全をもたらす_
 正直笑っています，いままで苦労していろいろ頑張ってたのに，JTD でスキーマ定義するだけで """全部""" が手に入ってしまった 🥲
 
 みなさんもぜひ明日から _JSON Typed Definition_ こと **JTD** および **_Ajv JSON Validator_** でサイコーのスキーマドリブンな開発をお楽しみください 👍
+
+## 追記１
+
+[JSON Typed Definition の未来の話](https://zenn.dev/link/comments/bf72e86ed6ce37) という _small idea_ をスクラップとして残したので，TypeScript ガチ勢の知見をぜひともお借りしたい
+https://zenn.dev/link/comments/bf72e86ed6ce37
