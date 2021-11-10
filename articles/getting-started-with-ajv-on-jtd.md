@@ -1,5 +1,5 @@
 ---
-title: "JSON Typed Definition で始める Ajv 入門"
+title: "Ajv × JTD で JSON の型定義とバリデータを同時に得る" # <-- "JSON Typed Definition で始める Ajv 入門"
 emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Ajv", "JSONTypedDefinition", "JTD", "validation", "TypeScript"]
