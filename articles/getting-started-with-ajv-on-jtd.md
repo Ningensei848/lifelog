@@ -6,6 +6,14 @@ topics: ["Ajv", "JSONTypedDefinition", "JTD", "validation", "TypeScript"]
 published: true
 ---
 
+# TL; DR
+
+1. [Ajv](https://ajv.js.org/) っていう JSON バリデータを紹介
+2. [JSON Typed Definition](https://jsontypedef.com/) っていう規格を使う；ただし [RFC 8927](https://datatracker.ietf.org/doc/rfc8927/) _(Experimental)_ なことに留意すること
+3. クロスプラットフォーム対応な **型定義**と**バリデータ**がサクッと手に入って最高！
+
+# はじめに
+
 フロントエンドでもバックエンドでも共通の規格として採用され，かつ一般的な人類が普遍的に理解できるし書ける ―――
 
 プログラミングにおいて，データ構造はその用途によって様々なカタチであらわれます．CSV / XML / YAML / TOML といった例は数あれど，特に **JSON** ほど広く普及し，かつ誰でも理解されやすいものは未だありません．人が読み書きするのはもとより，クライアント・サーバの双方でやりとりする場合にも多く採用されています．
