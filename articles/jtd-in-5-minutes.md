@@ -2,7 +2,7 @@
 title: "５分で理解する JSON Type Definition"
 emoji: "🖐"
 type: "tech"
-topics: ["JSONTypedDefinition", "JTD", "validation", "JSON", "TypeScript"]
+topics: ["JSONTypedDefs", "JTD", "validation", "JSON", "TypeScript"]
 published: true
 ---
 

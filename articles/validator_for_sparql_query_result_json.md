@@ -2,13 +2,15 @@
 title: "SPARQL のための型安全なバリデータをつくった"
 emoji: "🦾"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: ["sparql", "JSONTypedDefinition", "validation", "JTD"]
+topics: ["sparql", "JSONTypedDefs", "validation", "JTD", "TypeScript"]
 published: true
 ---
 
 :::message
 この記事は [Linked Open Data Challenge 2021 (LOD チャレンジ 2021)](https://2021.lodc.jp/entry.html) の **データ活用部門** にエントリーしています
 :::
+
+（タイトル通りとはおそれいった，という感じですが）SPARQL の問い合わせ結果が JSON で帰ってくるときに，そのデータを `any` ではなく型安全に扱える方法を提案しています．最後の方にあるデモアプリケーションやバリデータそれ自体は _TypeScript_ で実装されていますが，今回採用した _JSON Typed Definition_ という規格を用いてスキーマを定義すれば，**言語を問わず様々な場面で使用**することが出来ます．JavaScript や Python においても型安全が保証されるのは，WEB システムやデータ分析においても強力な後押しとなることでしょう．
 
 # JTD によるスキーマ定義
 
