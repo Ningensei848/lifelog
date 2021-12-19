@@ -1075,7 +1075,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lifelog@workspace:."
   dependencies:
-    zenn-cli: ^0.1.99
+    zenn-cli: ^0.1.100
   languageName: unknown
   linkType: soft
 
@@ -1984,9 +1984,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zenn-cli@npm:^0.1.99":
-  version: 0.1.99
-  resolution: "zenn-cli@npm:0.1.99"
+"zenn-cli@npm:^0.1.100":
+  version: 0.1.100
+  resolution: "zenn-cli@npm:0.1.100"
   dependencies:
     arg: ^5.0.0
     cheerio: ^1.0.0-rc.10
@@ -2002,16 +2002,16 @@ __metadata:
     node-fetch: ^2.6.1
     open: ^8.2.0
     ws: ^7.4.6
-    zenn-markdown-html: ^0.1.99
+    zenn-markdown-html: ^0.1.100
   bin:
     zenn: dist/server/zenn.js
-  checksum: d57b9ec5bf4f1ae344e24a269ec825cc16f6ebd72d457f73099c9abd3090d318885377c7090a7535604718f203eac00bb100346962f5b795193fada296b2b2f8
+  checksum: 06e17823d67fffa32ba0e8d2c224dec5845d58dcbc7a3f829e230724df00d7ced2135e147b83ef4938ba9338cd2a6bbb20eed8ea0de75ad28f207d4866c7268b
   languageName: node
   linkType: hard
 
-"zenn-markdown-html@npm:^0.1.99":
-  version: 0.1.99
-  resolution: "zenn-markdown-html@npm:0.1.99"
+"zenn-markdown-html@npm:^0.1.100":
+  version: 0.1.100
+  resolution: "zenn-markdown-html@npm:0.1.100"
   dependencies:
     "@steelydylan/markdown-it-imsize": ^1.0.2
     "@steelydylan/prism-diff-highlight": 1.0.4
@@ -2023,6 +2023,6 @@ __metadata:
     markdown-it-link-attributes: ^3.0.0
     markdown-it-task-lists: ^2.1.1
     prismjs: ^1.25.0
-  checksum: 32a29e698e5d7f59719767212cfa665e4bf6ba5e11a9ae84421c5f9b9ae25d9af19a70f13cb7dc1730966dda0e25f8f1e1430a23ebb412910ea401ea7537e9e1
+  checksum: cb8be4c7faa9c1447448048327325e34c6a649794792bab4ba4e6db59faa74fe1619e15af084230df7b3901931de623dc2245ef66a26d0a198746d31ae895fd4
   languageName: node
   linkType: hard
