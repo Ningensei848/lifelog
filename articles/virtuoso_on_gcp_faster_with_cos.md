@@ -14,7 +14,7 @@ published: true
 
 自前のオープンデータでエンドポイントを建てよう！と考えたときに，**意外と難しいし手間がかかるという問題**があります．これを解決しようと取り組んだのが [林 正洋さん（公共オープンデータ利活用研究室 mirko）](http://www.mirko.jp/) の "[Google Cloud Platform の無期限無料枠を利用した Virtuoso の構築方法 - Qiita](https://megalodon.jp/2021-1214-2256-07/https://qiita.com:443/mirkohm/items/30991fec120541888acd)" でした[^1]．
 
-[^1]: この記事は，[LOD チャレンジ 2020 年度受賞作品（LOD プロモーション賞）](https://2020.lodc.jp/awardSymposium2020Report.html#:~:text=%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%EF%BC%81%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%BB%E3%83%83%E3%83%88-,%E3%83%86%E3%83%BC%E3%83%9E%E8%B3%9E%EF%BC%9A%20LOD%E3%83%97%E3%83%AD%E3%83%A2%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E8%B3%9E,-%E4%BD%9C%E5%93%81%E5%90%8D)でもある
+[^1]: [LOD チャレンジ 2020 年度受賞作品（LOD プロモーション賞）](https://2020.lodc.jp/awardSymposium2020Report.html#:~:text=%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%EF%BC%81%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%BB%E3%83%83%E3%83%88-,%E3%83%86%E3%83%BC%E3%83%9E%E8%B3%9E%EF%BC%9A%20LOD%E3%83%97%E3%83%AD%E3%83%A2%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E8%B3%9E,-%E4%BD%9C%E5%93%81%E5%90%8D)でもある
 
 https://qiita.com/mirkohm/items/30991fec120541888acd
 https://qiita.com/mirkohm/items/95cac0ab26007f8bade4
