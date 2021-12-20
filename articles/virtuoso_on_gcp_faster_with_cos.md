@@ -121,6 +121,8 @@ https://github.com/Ningensei848/virtuoso-on-gcp-with-cos
 - ドメインの確保
 - [DNS](https://www.nic.ad.jp/ja/newsletter/No22/080.html) の設定
 
+::::details 詳細をみる
+
 〈**プロジェクトの作成**〉については，GCP にアカウントを登録した際に，コンソール画面へ移行するときに作成したものを使ってもいいし，新たに作っても構いません．何であれ，GCP 上で動かす汎ゆるサービスは，この「プロジェクト」という括りの中で動作する仕組みになっています（ので，なにをするにも必要な情報です）
 
 〈**静的外部 IP アドレスの予約**〉については，[公式のドキュメントを参照](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address)してください．いままで GCP に触れたことがなければ "静的外部 IP アドレスを予約して、そのアドレスを新しい VM インスタンスに割り当て" というアプローチを取ることになるでしょう
@@ -137,9 +139,11 @@ https://github.com/Ningensei848/virtuoso-on-gcp-with-cos
 すべてを GCP 上で完結できることは，その他の最安値サービスを継ぎ接ぎするコストを補って余りあるメリットがあります
 :::
 
+::::
+
 ここまでの情報をもとに，`.env.example` を編集し，**`.env` にリネームしてから保存してください**．
 
-:::details 各種の変数に関する説明
+:::details 各種の変数についてもっと知る
 
 必須項目:
 
@@ -177,6 +181,7 @@ https://github.com/Ningensei848/virtuoso-on-gcp-with-cos
 ## Step 2.2. スクリプトを実行し，`isql` プロシージャを得る
 
 次に，スクリプトを実行して `isql` プロシージャを取得します．これは，virtuoso に対してどこにどのデータが有るのか・どのようにデータを読み込めば良いのかを教えてあげるものです．ブラウザ経由でファイルをアップロードする方法もあるにはありますが，こちらは大規模にデータをロードするのには向いていないので紹介するのは控えます．
+
 以下のコマンドをコピペして実行してください：
 
 ```shell
@@ -189,6 +194,7 @@ docker run --rm -v $(pwd)/data:/data -v $(pwd)/script:/script -u "$(id -u $USERN
 ## Step 2.3. Virtuoso コンテナを建てる
 
 `docker-compose` を利用してコンテナを建てます．もし `docker` をインストールした際に附属していなかった場合には，適宜[インストール](https://docs.docker.com/compose/install/)してください．
+
 以下のコマンドをコピペして実行してください：
 
 ```shell
@@ -196,7 +202,15 @@ source .env
 docker-compose up -d virtuoso
 ```
 
-次のステップに進む前に，Virtuoso が本当に起動したのか確認しましょう：`docker-compose logs` というコマンドで，立ち上げたコンテナが現在どのような状態になっているのか知ることができます．"Server online at XXXX" （XXXX はポート番号）という表示があれば準備完了です．
+次のステップに進む前に，Virtuoso が本当に起動したのか確認しましょう：
+
+```shell
+# Check if the virtuoso server is online at port XXXX
+docker-compose logs
+```
+
+`logs` コマンドを使うことで，立ち上げたコンテナが現在どのような状態になっているのか知ることができます．
+以下のように，"Server online at XXXX" （XXXX はポート番号）という表示があれば準備完了です．
 
 > virtuoso_container | HH:MM:SS Server online at $PORT_VIRTUOSO_ISQL (pid 1)
 
@@ -206,6 +220,7 @@ docker-compose up -d virtuoso
 http://docs.openlinksw.com/virtuoso/rdfperfloading/
 
 ローカル環境で行なう最後の作業として，RDF データを読み込ませて `virtuoso.db` を得ます．実は，この作業のために先程取得した _initialLoader.sql_ が必要なのでした．
+
 以下のコマンドをコピペして実行してください：
 
 ```shell
@@ -213,11 +228,17 @@ source .env
 nohup docker exec -i virtuoso_container isql $PORT_VIRTUOSO_ISQL -U dba -P $PASSWORD_VIRTUOSO < ./script/initialLoader.sql &
 ```
 
+:::details このコマンドはなにか
 ここで，`nohup $@ &` とは，`$@` に相当するコマンドをバックグラウンドかつ現在の接続状態とは独立して実行させるコマンドです．なぜこのようにするかというと，`$@` に相当する **`docker exec ~` コマンドの実行に結構な時間がかかる**（からバックグラウンドでやりたい）からという理由が一つと，もう一つは **`nohup.out` というファイルに現在の進捗が記録される**からという理由があります．
-virtuoso によるデータの読み込みが終わった際には，`nohup.out` の一番最後に "_initialLoader.sql completed_" という表示が出力されます．この文字列が確認できたら，次のステップに進んでください．
+:::
+
+コマンドが実行された後に，カレントディレクトリに `nohup.out` というファイルが生成されているのが確認できるでしょうか？ virtuoso による**データの読み込みが終わった際には，この `nohup.out` の一番最後に "_initialLoader.sql completed_" という表示が出力**されます．
+
+この文字列が確認できたら，次のステップに進んでください．
 
 # Step 3. _virtuoso.db_ を GCS にアップロードする
 
+:::details GCS とはなにか
 [GCS](https://cloud.google.com/storage) (Google Cloud Storage) は，同じく GCP 上のサービスです．GCP における「プロジェクト」，GCE におけるインスタンスのように，GCS には「バケット」という単位があります．このバケットをルートディレクトリとして，ファイルやディレクトリ等のデータを保存することができます．
 まだバケットを持っていない場合には，新たに作成します．`gsutil` コマンド経由で作成する場合には以下のようなコマンドを実行します：
 
@@ -226,7 +247,9 @@ source .env
 gsutil mb -p $GCE_PROJECT_NAME gs://$GCS_BUCKET_NAME
 ```
 
-作成したバケット内に，_virtuoso.db_ をアップロードします（ローカルにあるファイルをクラウドストレージ上にコピーします）．
+:::
+
+GCS のバケットに，_virtuoso.db_ をアップロードします．すなわち，ローカルにあるファイルをクラウドストレージ上にコピーします．
 
 ```shell
 source .env
@@ -236,6 +259,7 @@ gsutil cp ./.virtuoso/virtuoso.db gs://$GCS_BUCKET_NAME
 # Step 4. GCE インスタンスを作成する
 
 最後に，これまで記述・作成したきたものを GCE インスタンス上にデプロイします．以下で実行しているのは `create` コマンドではありますが，引数の中に `startup-script` というメタデータを含んでおり，これによってインスタンスが作成された後に**自動でスクリプトが走り，サーバ上に必要なあれこれを展開してくれる仕組み**になっています．
+
 以下のコマンドをコピペして実行してください：
 
 ```shell
