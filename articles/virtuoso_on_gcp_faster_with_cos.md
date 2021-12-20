@@ -267,7 +267,7 @@ source .env
 gcloud compute instances create $GCE_CREATE_ARGS
 ```
 
-:::details もっとみる
+:::details $GCE_CREATE_ARGS の中身を知りたい
 
 `.env` を編集する際にチラッと見えたかもしれませんが，**GCE_CREATE_ARGS** の中身は次のようになっています：
 
@@ -292,6 +292,25 @@ GCE_CREATE_ARGS="$GCE_INSTANCE_NAME \
 
 :::message
 インスタンス内部でも `gsutil` コマンドを用いて GCS とのデータ同期を取っている関係上，予約した静的 IP で**外部からアクセスできるまでの時間は `virtuoso.db` のデータ量に依存**しています．この処理だけはデータの大きさによって時間が取られてしまうことがあります，ご了承ください．
+:::
+
+:::details Tips: インスタンス起動時のログを見たい
+
+インスタンスを（停止状態から）起動するたびに，`startup.sh` というスクリプトが走っています．この実行ログは，以下のコマンドを実行することで確認することが出来ます．
+
+```shell
+source .env
+# （ブラウザウィンドウで接続する場合はスキップ）
+# 1. インスタンスに ssh 接続する
+gcloud compute ssh $GCE_INSTANCE_NAME --zone $GCE_ZONE
+# 2. 以下のコマンドをインスタンス上で実行する
+sudo journalctl -u google-startup-scripts.service
+```
+
+※閲覧状態から抜け出すには，Q キーを押下してください (_quit_ の意)
+
+**インスタンスが本当に起動できているのか？**（あるいは起動できなかった理由は何なのか）を探る際にご活用ください．
+
 :::
 
 ![ピンク色の花束の中に、「おめでとう」というメッセージカードが入っているイラスト](https://1.bp.blogspot.com/-QqaAp33KiPI/U3WdFej9oYI/AAAAAAAAgmg/l5XUakAdCXk/s800/bouquet_omedetou.png =100x)
