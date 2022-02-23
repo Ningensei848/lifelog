@@ -7,27 +7,37 @@ topics: ["Docusaurus", "documentation", "Markdown", "React", "MDX"] # タグ．[
 published: true # 公開設定（falseにすると下書き）
 ---
 
+:::message
+
+（経験者向け情報）チュートリアルじゃなくてカスタマイズ方法が知りたい！って方は[『Docusaurus 活用のための Tips (2022 年 2 月版)』](https://zenn.dev/ningensei848/articles/docusaurus-tips-2022-02)を参照してください
+
+:::
+
 # What is Docusaurus ?
 
 [![Logo | Docusaurus Keytar](https://v2.docusaurus.io/img/docusaurus_keytar.svg)_Build optimized websites quickly, focus on your content - Docusaurus Keytar_](https://v2.docusaurus.io/)
 
 [Docusaurus](https://v2.docusaurus.io/) とは "最適化されたウェブサイトを迅速に構築し，**本質**に集中させる" というスローガンのもと [Facebook 傘下のチームが開発している](https://v2.docusaurus.io/community/team) 静的サイトジェネレータです．特徴として，次の五つが挙げられています．
 
-1. Powered by Markdown
+1. Powered by ~~Markdown~~ => [MDX](https://mdxjs.com/)
 2. Built Using React
 3. Content Search
 4. Ready for Translations
 5. Document Versioning
 
-※ただし，まだまだアルファなので４，５については工事が進行中
+~~※ただし，まだまだアルファなので４，５については工事が進行中~~
+
+追記：[2021 年 5 月 12 日に β 版](https://docusaurus.io/blog/2021/05/12/announcing-docusaurus-two-beta)がリリースされ，2022/02/23 現在では beta.15 までヴァージョンアップしました！🎉🎉🎉
 
 :::details より詳細な特徴の説明
 
-## 1. Powered by Markdown
+## 1. Powered by MDX
 
-![Powered by Markdown](https://d33wubrfki0l68.cloudfront.net/82d7b6152e7f72bc5dcfc783906182e6366418c5/14d58/img/undraw_typewriter.svg)
+![Powered by MDX](https://d33wubrfki0l68.cloudfront.net/82d7b6152e7f72bc5dcfc783906182e6366418c5/14d58/img/undraw_typewriter.svg)
 
 ドキュメンテーションの作成に時間を取られて開発が疎かになっていては本末転倒です．Docusaurus では Markdown に加えて **[MDX](https://mdxjs.com/)** を採用し，これらでドキュメントやブログ記事を書くだけで簡単に静的 HTML ファイルを公開できるようにしています．MDX のおかげで，[Markdown に JSX コンポーネントを埋め込む](https://v2.docusaurus.io/docs/next/markdown-features/react)こともできます（これがマジで強い）．
+
+追記：2022/02/23 時点では[まだ MDX v2 に追いついていない](https://github.com/facebook/docusaurus/issues/4029)が，メジャーバージョンアップまでには追いつくと思いたい（願望）
 
 ## 2. Built Using React
 
@@ -46,7 +56,6 @@ cf. [DocSearch: Search made for documentation | DocSearch](https://docsearch.alg
 ## 4. Ready for Translations
 
 ![Ready for Translations](https://d33wubrfki0l68.cloudfront.net/d8b88dcb3dbfe231345679852dcad7bc40c4ec14/cf922/img/undraw_around_the_world.svg)
-（※2021/02/13 現在，ほとんど実現できているが実際には工事中）
 
 > Localization comes pre-configured. Use Crowdin to translate your docs into over 70 languages.
 
@@ -55,8 +64,6 @@ cf. [i18n | Docusaurus](https://v2.docusaurus.io/docs/next/i18n/introduction)
 ## 5. Document Versioning
 
 ![Document Versioning](https://d33wubrfki0l68.cloudfront.net/d751ee750975e36973e1c96283e0d18bdc7a85f9/50077/img/undraw_version_control.svg)
-
-（※2021/02/13 現在，ほとんど実現できているが実際には工事中）
 
 > Support users on all versions of your project. Document versioning helps you keep documentation in sync with project releases.
 
@@ -73,19 +80,22 @@ cf. [Versioning | Docusaurus](https://v2.docusaurus.io/docs/next/versioning)
 
 :::message alert
 ※性質上，Docusaurus を既存のプロジェクトに組み込むのは中々骨が折れるかと思います．そこは議論しても仕方がないので，まず Docusaurus でプロジェクトを作ってから，既存のプロジェクトのコードを移してくるのが丸い解決策な気がします（個人的見解）
+
+※サーバが自由に使えるならモノレポ構成にしてルーティングだけ差し替えてやれば良いし，ページコンポネントの出力先を `website/src/pages` にしてビルドしたあとで，docusaurus 側のビルドを噛ませる高等テクニックを駆使すれば， SSG であっても対応できそうな気がします
 :::
 
-:::message info
+:::message
 ※多くの React プロジェクトと同様に，Docusaurus では 「`/src/pages/` アーキテクチャ」を採用しています．[こちら](https://v2.docusaurus.io/docs/next/creating-pages#routing)を参照ください
 :::
 
 ## 1. Requirements を整える
 
-> - Node.js version >= 10.15.1 or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed
+> - Node.js version >= 14 or above (which can be checked by running node -v). You can use nvm for managing multiple Node versions on a single machine installed.
+>   - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
 > - Yarn version >= 1.5 (which can be checked by running yarn --version). Yarn is a performant package manager for JavaScript and replaces the npm client. It is not strictly necessary but highly encouraged.
->   cf. [Installation | Docusaurus](https://v2.docusaurus.io/docs/next/installation)
+>   cf. [Installation | Docusaurus](https://docusaurus.io/docs/installation)
 
-上記の通り，v10.5 以上の Node.js と v1.5 以上の Yarn が必要です．既存のものがあればそれを活用しても問題ないと思います．もし未だ手元に環境がない場合，NVM（Node.js のバージョン管理ツール）経由で最新の LTS 版 Node.js をインストールするのが良いでしょう．
+上記の通り，v14.X 以上の Node.js と v1.5 以上の Yarn が必要です．既存のものがあればそれを活用しても問題ないと思います．もし未だ手元に環境がない場合，[NVM](https://github.com/nvm-sh/nvm)（Node.js のバージョン管理ツール）経由で最新の LTS 版 Node.js をインストールするのが良いでしょう．
 
 :::details 手元に環境がない方はこちらをご覧ください
 
@@ -93,9 +103,9 @@ cf. [Versioning | Docusaurus](https://v2.docusaurus.io/docs/next/versioning)
 
 ```bash
 # firstly, execute setup script
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
   or
-$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 # secondly, run a command below
 $ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -145,7 +155,9 @@ cf. [npm/npx: npm package executor | GitHub](https://github.com/npm/npx#readme)
 
 「website」というプロジェクトを作成してみます．これはサイト名の初期値も兼ねています．
 
-`npx @docusaurus/init@latest init website classic`
+```shell
+$ npx create-docusaurus@latest website classic --typescript
+```
 
 :::details `classic` テンプレートとは何か ?
 ここでは「classic」というテンプレートを使用しました．
@@ -228,7 +240,7 @@ module.exports = {
 };
 ```
 
-cf. [`docusaurus.config.js` settings | Deployment | Docusaurus](https://v2.docusaurus.io/docs/next/deployment#docusaurusconfigjs-settings)
+cf. [`docusaurus.config.js` settings | Deployment | Docusaurus](https://docusaurus.io/docs/deployment#deploying-to-github-pages)
 
 #### `organizationName`
 
@@ -317,70 +329,44 @@ $ vi .github/workflows/documentation.yml
 :::details .github/workflows/documentation.yml
 
 ```yml
-name: documentation
+name: Deploy to GitHub Pages
 
 on:
-  pull_request:
-    branches: [documentation]
   push:
-    branches: [documentation]
-  workflow_dispatch: # Action タブから任意に実行できるようにする
+    branches: [main]
+    paths: [website/**]
+  workflow_dispatch:
 
 jobs:
-  checks:
-    if: github.event_name != 'push'
+  deploy:
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          node-version: "12.x"
-      - name: Test Build
+          node-version: 14.x
+          cache: yarn
+      - name: Build website
+        working-directory: website
         run: |
-          if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
-          npm run build
-  gh-release:
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+          yarn build
+
+      # Popular action to deploy to GitHub Pages:
+      # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          node-version: "12.x"
-      - name: Add key to allow access to repository
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          echo "${{ secrets.GH_PAGES_DEPLOY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          cat <<EOT >> ~/.ssh/config
-          Host github.com
-          HostName github.com
-          IdentityFile ~/.ssh/id_rsa
-          EOT
-      - name: Release to GitHub Pages
-        env:
-          USE_SSH: true
-          GIT_USER: git
-        run: |
-          git config --global user.email "actions@gihub.com"
-          git config --global user.name "gh-actions"
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
-          npx docusaurus deploy
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Build output to publish to the `gh-pages` branch:
+          publish_dir: ./website/build
+          # Assign commit authorship to the official GH-Actions bot for deploys to `gh-pages` branch:
+          # https://github.com/actions/checkout/issues/13#issuecomment-724415212
+          # The GH actions bot is used by default if you didn't specify the two fields.
+          # You can swap them out with your own user credentials.
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
 ```
 
 :::
@@ -451,7 +437,7 @@ $ git push --set-upstream origin main
 
 ![github-pages is Active](https://github.com/Ningensei848/lifelog/blob/zenn/static/img/what-is-Docusaurus/sample_repository_navbar_right_rocket.png?raw=true)_github-pages is Active 🚀_
 
-これで，**`documentation` ブランチに何らかの変更があった場合**，あるいは今回のように**手動で発火させた場合**にワークフローが実行されるようになりました．
+これで，**`main` ブランチに何らかの変更があった場合**，あるいは今回のように**手動で発火させた場合**にワークフローが実行されるようになりました．
 
 ---
 
@@ -469,7 +455,11 @@ Docusaurus をカスタマイズするためには，以下のいくつかの方
 
 ### `sidebars.js`：サイドバーの調整
 
-cf. [Sidebar | Docusaurus](https://v2.docusaurus.io/docs/next/sidebar)
+:::message
+追記（2022/02/23）：[2.0.0-beta.0](https://docusaurus.io/blog/2021/05/12/announcing-docusaurus-two-beta#whats-new) からは，ディレクトリ構造とメタデータを読み取って自動設定してくれるようになりました 🌟 　細かく複雑な制御をしたい場合には下記のような記述を行なうべきですが，そうでない場合は各ファイルごとにメタデータで制御したほうがトータルの記述量がずっと少なくて済むかと思います！
+:::
+
+cf. [Sidebar | Docusaurus](https://docusaurus.io/docs/sidebar)
 
 Docusaurus には，Markdown の先頭で [Front Matter](https://jekyllrb.com/docs/front-matter/) を定義することでファイルを検知し，**`.md` から `.html` へと変換する**という機能が備わっています．[Zenn CLI で記事・本を管理する方法](https://zenn.dev/zenn/articles/zenn-cli-guide#%E8%A8%98%E4%BA%8B%E3%81%AE%E4%BD%9C%E6%88%90) においても同様のアプローチが取られています（ので，実は [Zenn.dev](https://zenn.dev/) と Docusaurus は記法次第で共存できてしまいます，最高か？ ）．
 
@@ -707,6 +697,8 @@ module.exports = {
 
 個々の詳細について紹介していると深入りしすぎてしまうので割愛します．これらの詳細については [こちら](https://v2.docusaurus.io/docs/next/docusaurus.config.js) を参照してください．
 
+:::details DocSearch by Algolia（プロダクション環境では有料 API が必要）
+
 紹介だけというのも味気ないので，デフォルトで Docusaurus に付属している目玉機能「[文書検索 powered by Algolia](https://docsearch.algolia.com/)」を有効化してみます．
 
 cf. [What goes into a `docusaurus.config.js`? | Configuration | Docusaurus](https://v2.docusaurus.io/docs/next/configuration#what-goes-into-a-docusaurusconfigjs)
@@ -738,6 +730,8 @@ module.exports = {
 再度開発サーバを立ち上げてみましょう．設定が読み込まれていれば，右上に検索フォームが追加されているのがわかると思います．サイトにフォーカスがある状態で `Ctrl+k` のショートカットキーを押せば，すぐさまサイト内検索ができるようになっています．最高！
 
 cf. [Using Algolia DocSearch | Search | Docusaurus](https://v2.docusaurus.io/docs/next/search#using-algolia-docsearch)
+
+:::
 
 # More Advanced
 
@@ -790,7 +784,8 @@ We don't provide support for:
 - **Automatic locale detection**: opinionated, and best done on the [server](https://v2.docusaurus.io/docs/next/deployment).
 - **Translation SaaS software**: you are responsible to understand the external tools of your choice.
 - **Translation of slugs**: technically complicated, little SEO value.
-  :::
+
+:::
 
 Docusaurus においては，従来の「GitHub 等の公開リポジトリで翻訳 PR を募る」という形式だけでなく，["翻訳のためのローカライゼーションマネージメントプラットフォーム"](https://ja.wikipedia.org/wiki/Crowdin) である [Crowdin](https://crowdin.com/) との統合を簡単に行えるような仕組みを整えています（注：まだまだアルファ版ではあります……応援しましょう）．
 
@@ -892,7 +887,8 @@ Crowdin から翻訳作業に参加するために必要なことは，以下の
 > https://github.com/facebook/docusaurus/blob/master/packages/docusaurus-theme-classic/codeTranslations/fr.json
 >
 > Thanks for your help 😃
-> :::
+
+:::
 
 要約すると，まず翻訳に取り組むべきは以下のフォルダ配下のファイルです．
 

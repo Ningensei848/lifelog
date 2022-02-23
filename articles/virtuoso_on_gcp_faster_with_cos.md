@@ -8,6 +8,10 @@ published: true
 
 :::message
 この記事は [Linked Open Data Challenge 2021 (LOD チャレンジ 2021)](https://2021.lodc.jp/entry.html) の **データ活用部門** にエントリーしています
+
+<br />
+
+追記（2022/02/23）：[LOD プロモーション賞](https://2021.lodc.jp/awardPressRelease2021.html) を頂きました～～ありがとうございます！
 :::
 
 # はじめに
