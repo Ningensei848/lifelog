@@ -1,9 +1,10 @@
 ---
-title: "Google Colaboratory 上で Poetry の仮想環境をカーネルとして使う"
-emoji: "🔥"
+title: "Google Colaboratory で Python 3.9 を使い、 Poetry で管理する"
+emoji: "🧑‍🔬"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: []
-published: false
+topics: ["colaboratory", "poetry", "python"]
+published: true
+published_at: 2022-10-13 17:30 # 未来の日時を指定する
 ---
 
 # TL; DR
@@ -23,8 +24,6 @@ Google Colaboratory は、計算環境のみならずクラウドストレージ
 機械学習を筆頭にどこでも必須である `NumPy` やら `Pandas` が軒並み 3.7 へのサポートを打ち切り始めていることからも、ことの深刻さが伝わるだろうか。
 Google 公式がシステムアップデートを行なってくれればそれで済む話ではあるが、いつ来るかわからない機会をいつまでも待ち続けるわけには行かない。
 
----
-
 このようなモチベーションを原点として、以下の課題に取り組んだ：
 
 - なるたけ新しいバージョンの `python` が使えるようにする
@@ -40,6 +39,8 @@ Google 公式がシステムアップデートを行なってくれればそれ�
 3. いい感じでパスを通した後 [`poetry`](https://python-poetry.org/) で仮想環境を作ってカーネルとして登録し、ランタイムの設定を反映させて完了！
 
 これらの内容はすべて上述の [gist](https://gist.github.com/Ningensei848/dc0061f85966e16210ac49fd477c8dd1) にかかれているので、何も考えずポチポチ実行していくだけで 3.9 環境が手に入るだろう。
+
+---
 
 以下では、内容について詳細に解説してある。
 もし興味があれば、一読してほしい。
