@@ -1,0 +1,13 @@
+{
+    "editor.formatOnSave": true,
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "markdownlint.config": {
+        "default": true,
+        "MD013": false,
+        "MD025": false,
+        "MD034": false,
+    }
+}
