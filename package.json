@@ -1,8 +1,7 @@
 {
   "name": "lifelog",
   "version": "1.0.0",
-  "description": "インターネット上の活動をGithubのリポジトリにできるだけ集約する．",
-  "main": "index.js",
+  "description": "インターネット上の活動をGithubのリポジトリにできるだけ集約する.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx zenn preview"
@@ -15,6 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "zenn-cli": "^0.1.131"
+    "zenn-cli": "^0.1.141"
   }
 }
