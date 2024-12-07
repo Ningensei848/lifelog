@@ -95,11 +95,9 @@ https://blogs.jpcert.or.jp/ja/2022/09/active-cyber-defense.html
 > ②対抗手段の実施「コスト」を踏まえた対抗オペレーションの選択
 > ③単一の「被害」に固執しない、長期的な「コスト」の観点からの被害対応
 
-![アクティブサイバーディフェンス等の用語の整理](https://blogs.jpcert.or.jp/ja/.assets/thumbnail/%E5%9B%B31%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E3%83%87%E3%82%A3%E3%83%95%E3%82%A7%E3%83%B3%E3%82%B9%E7%AD%89%E3%81%AE%E7%94%A8%E8%AA%9E%E3%81%AE%E6%95%B4%E7%90%86-588543fe-800wri.png)
-*アクティブサイバーディフェンス等の用語の整理*
+[![アクティブサイバーディフェンス等の用語の整理](https://blogs.jpcert.or.jp/ja/.assets/thumbnail/図1アクティブサイバーディフェンス等の用語の整理-588543fe-800wri.png)*アクティブサイバーディフェンス等の用語の整理*](https://blogs.jpcert.or.jp/ja/2023/08/effectiveness-of-active-cyber-defense.html)
 
-![攻撃者側のサンクコスト](https://blogs.jpcert.or.jp/ja/.assets/thumbnail/%E5%9B%B34%E6%94%BB%E6%92%83%E8%80%85%E5%81%B4%E3%81%AE%E3%82%B5%E3%83%B3%E3%82%AF%E3%82%B3%E3%82%B9%E3%83%88-640wri.png)
-*攻撃者側のサンクコスト*
+[![攻撃者側のサンクコスト](https://blogs.jpcert.or.jp/ja/.assets/thumbnail/図4攻撃者側のサンクコスト-640wri.png)*攻撃者側のサンクコスト*](https://blogs.jpcert.or.jp/ja/2023/08/effectiveness-of-active-cyber-defense.html)
 
 なるほど、長期的に指揮を取る組織と広義の「コスト」を踏まえたオペレーションの選定が必要と述べられています。また、「能動的」という語から想起する "_offensive_" なアレコレについても釘を刺す内容となっています。
 
