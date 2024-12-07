@@ -95,11 +95,13 @@ https://blogs.jpcert.or.jp/ja/2022/09/active-cyber-defense.html
 > ②対抗手段の実施「コスト」を踏まえた対抗オペレーションの選択
 > ③単一の「被害」に固執しない、長期的な「コスト」の観点からの被害対応
 
+パラダイムシフト、すなわち発想の転換、コペルニクス的転回が必要だと述べています。いくら守っていようとも、それ以上の早さで攻撃側が手を変え品を変えやってくるため、こちらとしても「_Offensive_ なオペレーション」を視野に入れていくぞ、という図が以下の通りです:
+
 [![アクティブサイバーディフェンス等の用語の整理](https://blogs.jpcert.or.jp/ja/.assets/thumbnail/図1アクティブサイバーディフェンス等の用語の整理-588543fe-800wri.png)*アクティブサイバーディフェンス等の用語の整理*](https://blogs.jpcert.or.jp/ja/2023/08/effectiveness-of-active-cyber-defense.html)
 
-[![攻撃者側のサンクコスト](https://blogs.jpcert.or.jp/ja/.assets/thumbnail/図4攻撃者側のサンクコスト-640wri.png)*攻撃者側のサンクコスト*](https://blogs.jpcert.or.jp/ja/2023/08/effectiveness-of-active-cyber-defense.html)
+他方、「能動的」という語から想起する "_offensive_" なアレコレについては銀の弾丸にはなりえず、長期的に指揮を取る組織と広義の「コスト」を踏まえたオペレーションの選定が必要と述べられています:
 
-なるほど、長期的に指揮を取る組織と広義の「コスト」を踏まえたオペレーションの選定が必要と述べられています。また、「能動的」という語から想起する "_offensive_" なアレコレについても釘を刺す内容となっています。
+[![攻撃者側のサンクコスト](https://blogs.jpcert.or.jp/ja/.assets/thumbnail/図4攻撃者側のサンクコスト-640wri.png)*攻撃者側のサンクコスト*](https://blogs.jpcert.or.jp/ja/2023/08/effectiveness-of-active-cyber-defense.html)
 
 ……素人考えで言えば、もっとはっきりスパッとわかりやすく主張してくれよ！といったところでしょうか。他方、そうなってしまうのも当然で、現状の日本においてはこの領域の法整備が現実に追いついていない（し、それを実行するだけの実力もない）というのが実際のところであるように思えます。
 
